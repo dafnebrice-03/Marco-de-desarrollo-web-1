@@ -60,12 +60,13 @@ Si la app no arranca:
    Get-Service | Where-Object {$_.Name -like "*SQL*"}
    
 2. ¿Puedo conectar a BD?
+3. (esto ya no es necesario con el link direco que esta en archivo(solo el usuario y contraseña d etu sqlserver)
    sqlcmd -S DESKTOP-P99LE3N\SQLEXPRESS -U Sebastian -P Sebastian
 
-3. ¿Puerto 1433 escucha?
+4. ¿Puerto 1433 escucha?
    netstat -an | findstr 1433
 
-4. ¿Tengo Maven instalado?
+5. ¿Tengo Maven instalado?
    mvn -version
 
 Si sigue sin funcionar, verifica application.properties tiene credenciales correctas.
