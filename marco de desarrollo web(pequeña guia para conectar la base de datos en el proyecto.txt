@@ -1,0 +1,29 @@
+en la parte de application.propierties:
+
+# esto tambien cambie el url, es asi para que no sea tan complicado(porque como es local y no requerimos cifrado, es para 
+evitar errores, y para que java acepte el certificado local)
+spring.datasource.url=jdbc:sqlserver://localhost:1433;databaseName=sobreruedas;encrypt=false;trustServerCertificate=true
+
+en el link, vas a tener que poner el puerto que activaste (el tcpip) y el nmbre de la base de datos
+
+es el usuario que tu mismo pones para hacer la conexion en sql managment estudio(recomendacion que sea el usuario sa que ya esta
+predeterminado en el sistema, ya que tiene todos los permisos necesarios para hacer todo)
+spring.datasource.username=(usuairo)
+spring.datasource.password=(contraseña)
+
+
+y en la configuracion:
+
+# Configuración de JPA - SQL Server (esto cambie)
+spring.jpa.hibernate.ddl-auto=none
+spring.jpa.show-sql=false
+spring.jpa.properties.hibernate.format_sql=false
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.SQLServerDialect
+spring.jpa.database-platform=org.hibernate.dialect.SQLServerDialect
+spring.jpa.properties.hibernate.jdbc.batch_size=10
+spring.jpa.properties.hibernate.order_inserts=true
+spring.jpa.properties.hibernate.order_updates=true
+
+esta en none para evitar que hibernate modifique cosas, spring solo va a usar la base de datos, 
+no agregara nada malo, y asi evitar que hibernate haga cambios que puedan afectar el proyecto
+
