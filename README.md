@@ -6,16 +6,17 @@ PARA EJECUTAR LA APP
 
 1. Verificar SQL Server está corriendo
    - Abre services.msc
-   - Busca "SQL Server (SQLEXPRESS)"
+   - Busca "SQL Server (SQLEXPRESS) O MSSQLSERVER"
    - Si no está en "Running", click derecho → Start
 
 2. Ejecutar la aplicación
    mvn spring-boot:run
-   
+   (si en caso asi no corre prueba poniendo esto en la terminal:
+   .\mvnw.cmd spring-boot:run)
    O con verificación previa:
    .\EJECUTAR_CON_VERIFICACION.ps1
 
-3. Accede a http://localhost:8080
+4. Accede a http://localhost:8080
 
 CONFIGURACIÓN SQL SERVER
 
@@ -59,12 +60,16 @@ Si la app no arranca:
    Get-Service | Where-Object {$_.Name -like "*SQL*"}
    
 2. ¿Puedo conectar a BD?
+3. (esto ya no es necesario con el link direco que esta en archivo(solo el usuario y contraseña d etu sqlserver)
    sqlcmd -S DESKTOP-P99LE3N\SQLEXPRESS -U Sebastian -P Sebastian
 
-3. ¿Puerto 1433 escucha?
+4. ¿Puerto 1433 escucha?
    netstat -an | findstr 1433
 
-4. ¿Tengo Maven instalado?
+5. ¿Tengo Maven instalado?
    mvn -version
 
 Si sigue sin funcionar, verifica application.properties tiene credenciales correctas.
+
+Link para descargar la base de datos sql server:
+https://drive.google.com/drive/folders/1-0nw2d8Nxcqi9MU9kE0sdloZBiHJqrjV?usp=sharing
