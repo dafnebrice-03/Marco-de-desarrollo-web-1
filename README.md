@@ -11,11 +11,12 @@ PARA EJECUTAR LA APP
 
 2. Ejecutar la aplicación
    mvn spring-boot:run
-   
+   (si en caso asi no corre prueba poniendo esto en la terminal:
+   .\mvnw.cmd spring-boot:run)
    O con verificación previa:
    .\EJECUTAR_CON_VERIFICACION.ps1
 
-3. Accede a http://localhost:8080
+4. Accede a http://localhost:8080
 
 CONFIGURACIÓN SQL SERVER
 
