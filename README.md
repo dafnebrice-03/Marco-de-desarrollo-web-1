@@ -64,6 +64,10 @@ Si la app no arranca:
 3. ¿Puerto 1433 escucha?
    netstat -an | findstr 1433
 
+
+Link para descargar la base de datos sql server:
+https://drive.google.com/drive/folders/1-0nw2d8Nxcqi9MU9kE0sdloZBiHJqrjV?usp=sharing
+
 4. ¿Tengo Maven instalado?
    mvn -version
 
