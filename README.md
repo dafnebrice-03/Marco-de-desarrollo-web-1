@@ -6,7 +6,7 @@ PARA EJECUTAR LA APP
 
 1. Verificar SQL Server está corriendo
    - Abre services.msc
-   - Busca "SQL Server (SQLEXPRESS)"
+   - Busca "SQL Server (SQLEXPRESS) O MSSQLSERVER"
    - Si no está en "Running", click derecho → Start
 
 2. Ejecutar la aplicación
