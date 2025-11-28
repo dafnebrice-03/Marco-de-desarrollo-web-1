@@ -39,10 +39,12 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             // 🔒 Permisos por ruta
+            
+
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/", "/pagina1", "/login", "/register", "/css/**", "/js/**", "/img/**", "/images/**").permitAll()
-                .requestMatchers("/reservas/**", "/paquetes/**").authenticated()
-                .anyRequest().permitAll()
+               .requestMatchers("/reservas/**", "/paquetes/**").authenticated()
+               .anyRequest().permitAll()
             )
 
             // 🧭 Configuración de login
