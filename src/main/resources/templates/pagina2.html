@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre Ruedas - Nosotros</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Librerías -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="/js/main.js" defer></script>
+  <script src="/js/pagina2.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="font-[Poppins] bg-gray-50 text-gray-800 pt-20">
+
+  <!-- HEADER -->
+  <div th:replace="componentes/encabezado :: encabezado"></div>
+
+  <section class="relative h-[60vh] bg-cover bg-center flex items-center justify-center" style="background-image: url('/images/Imagen13.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="relative z-10 text-center text-white">
+      <h2 class="text-5xl md:text-6xl font-bold tracking-wide">NOSOTROS</h2>
+    </div>
+  </section>
+
+  <section class="py-16 bg-blue-600 text-center text-white px-6 animate-fadeIn">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-3xl font-bold mb-4">¡Explora con nosotros!</h2>
+      <p class="text-lg">Descubre paisajes increíbles, cultura viva y nuevas experiencias.</p>
+    </div>
+  </section>
+
+  <section class="py-16 px-6 max-w-7xl mx-auto space-y-20">
+
+    <div class="grid md:grid-cols-2 gap-10 items-center animate-fadeInUp">
+      <div>
+        <h3 class="text-3xl font-bold mb-4">¿Quiénes somos?</h3>
+        <p class="mb-3 leading-relaxed">Sobre Ruedas nace del deseo de explorar el Perú de forma auténtica, a través de rutas, pueblos y experiencias que muchas veces no aparecen en los mapas turísticos.</p>
+        <p class="mb-3 leading-relaxed">Creemos que cada viaje es una oportunidad para conectar: con la naturaleza, con las culturas locales y con uno mismo.</p>
+        <p class="leading-relaxed">Queremos inspirar a más viajeros a salirse del camino típico y crear su propia aventura.</p>
+      </div>
+      <div>
+        <img src="/images/Imagen13.jpg" alt="Imagen de quienes somos" class="rounded-xl shadow-lg w-full h-[400px] object-cover">
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10 items-center animate-fadeInUp">
+      <div class="order-2 md:order-1">
+        <img src="/images/Imagen14.jpg" alt="Imagen de nuestra misión" class="rounded-xl shadow-lg w-full h-[400px] object-cover">
+      </div>
+      <div class="order-1 md:order-2">
+        <h3 class="text-3xl font-bold mb-4">Nuestra misión</h3>
+        <p class="mb-3 leading-relaxed">Nuestro propósito es promover un turismo consciente, libre y emocionante.</p>
+        <p class="mb-3 leading-relaxed">No solo mostramos destinos: te acompañamos a vivir historias sobre ruedas, con respeto por la diversidad del Perú y pasión por los caminos abiertos.</p>
+        <p class="leading-relaxed">Ya sea que busques aventura, cultura o tranquilidad, queremos que sientas el Perú con cada kilómetro recorrido.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <div th:replace="componentes/footer :: footer"></div>
+
+</body>
+</html>

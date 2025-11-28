@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre Ruedas - Contáctanos</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- JS -->
+  <script th:src="@{/js/main.js}" defer></script>
+
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans pt-20">
+
+  <!-- HEADER -->
+  <div th:replace="componentes/encabezado :: encabezado"></div>
+
+  <!-- Hero -->
+  <section class="bg-blue-600 text-white py-16 text-center animate-fadeIn">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-5xl font-bold">CONTÁCTANOS</h2>
+      <h3 class="mt-4 text-lg">¿Listo para planear tu próxima aventura?</h3>
+      <h3 class="mt-2 text-lg">Escríbenos y nos pondremos en contacto contigo</h3>
+    </div>
+  </section>
+
+  <!-- Mensaje de éxito o error -->
+  <div class="max-w-3xl mx-auto mt-6 text-center">
+    <p th:if="${success}" th:text="${success}" class="text-green-600 font-semibold bg-green-100 p-3 rounded-lg"></p>
+    <p th:if="${error}" th:text="${error}" class="text-red-600 font-semibold bg-red-100 p-3 rounded-lg"></p>
+  </div>
+
+  <!-- Formulario -->
+  <section class="py-12 px-6">
+    <form th:action="@{/contacto}" th:object="${contacto}" method="post" 
+      class="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg space-y-6 transform transition duration-500 hover:shadow-2xl animate-fadeInUp">
+
+      <!-- Nombre -->
+      <div>
+        <label for="nombre" class="block font-semibold mb-2">Nombre y Apellidos</label>
+        <input th:field="*{nombre}" type="text" id="nombre" required
+          class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none transition" />
+        <p th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="text-red-600 text-sm mt-1"></p>
+      </div>
+
+      <!-- Celular -->
+      <div>
+        <label for="celular" class="block font-semibold mb-2">Celular</label>
+        <input th:field="*{celular}" type="tel" id="celular" placeholder="Ej: 987654321" required
+          class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none transition" />
+        <p th:if="${#fields.hasErrors('celular')}" th:errors="*{celular}" class="text-red-600 text-sm mt-1"></p>
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label for="email" class="block font-semibold mb-2">Email</label>
+        <input th:field="*{email}" type="email" id="email" required
+          class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none transition" />
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-red-600 text-sm mt-1"></p>
+      </div>
+
+      <!-- Mensaje -->
+      <div>
+        <label for="mensaje" class="block font-semibold mb-2">Mensaje</label>
+        <textarea th:field="*{mensaje}" id="mensaje" rows="5" required placeholder="Escribe tu mensaje aquí..."
+          class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"></textarea>
+        <p th:if="${#fields.hasErrors('mensaje')}" th:errors="*{mensaje}" class="text-red-600 text-sm mt-1"></p>
+      </div>
+
+      <!-- Botón -->
+      <button type="submit"
+        class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition transform hover:-translate-y-1 hover:scale-105">
+        Enviar mensaje
+      </button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <div th:replace="componentes/footer :: footer"></div>
+
+</body>
+</html>

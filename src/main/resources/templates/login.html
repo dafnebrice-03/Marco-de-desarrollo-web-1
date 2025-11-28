@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre Ruedas - Iniciar Sesión</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- JS local -->
+  <script th:src="@{/js/main.js}" defer></script>
+  <script th:src="@{/js/validation.js}" defer></script>
+</head>
+
+<body class="flex flex-col min-h-screen bg-gray-50">
+
+  <!-- SECCIÓN PRINCIPAL -->
+  <main class="flex-grow flex items-center justify-center px-4 relative">
+
+    <!-- Fondos decorativos -->
+    <div class="absolute top-16 left-16 w-64 h-64 bg-blue-300/20 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-16 right-16 w-80 h-80 bg-yellow-300/20 rounded-full blur-3xl"></div>
+
+    <!-- Tarjeta de Login -->
+    <div class="w-full max-w-md relative z-10 bg-white/90 backdrop-blur-lg shadow-2xl rounded-2xl p-10">
+
+      <!-- Título -->
+      <h2 class="text-3xl font-semibold text-center text-blue-900 mb-3">
+        Bienvenido a <span class="text-yellow-500">Sobre Ruedas</span>
+      </h2>
+      <p class="text-center text-sm text-blue-600 mb-4">
+        Accede a tu cuenta para continuar
+      </p>
+
+      <!-- Mensaje de error -->
+      <div th:if="${param.error}" class="text-red-600 text-center mb-4">
+        <p>Usuario o contraseña incorrectos.</p>
+      </div>
+
+      <!-- Mensaje de logout -->
+      <div th:if="${param.logout}" class="text-green-600 text-center mb-4">
+        <p>Has cerrado sesión correctamente.</p>
+      </div>
+
+      <!-- Formulario de login (lo cambie)-->
+      <form th:action="@{/login}" method="post" class="space-y-6">
+
+        <!-- Mantiene el destino (si se venía de una página protegida) (cambie por:) -->
+        <input type="hidden" name="continue" th:value="${param.continue}" />
+
+
+        <!-- Email (Usuario) (se cambio el imput)-->
+        <div>
+          <label for="email" class="block text-sm font-medium text-blue-900">
+            Correo Electrónico 
+            <span class="text-xs text-gray-600">(el que registraste)</span>
+          </label>
+          <input
+  type="email"
+  id="username"
+  name="username"
+  placeholder="ejemplo@correo.com"
+  required
+  class="mt-1 w-full px-4 py-2 bg-white border border-blue-200 rounded-lg shadow-sm focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+/>
+         <!--  <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-red-600 text-sm mt-1"></p> -->
+        </div>
+
+        <!-- Contraseña (se cambio el imput)-->
+        <div>
+          <label for="password" class="block text-sm font-medium text-blue-900">Contraseña</label>
+          <input
+  type="password"
+  id="password"
+  name="password"
+  placeholder="••••••••"
+  required
+  class="mt-1 w-full px-4 py-2 bg-white border border-blue-200 rounded-lg shadow-sm focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+/>
+
+          <p class="text-xs text-gray-500 mt-1">
+            Recuerda que tu contraseña debe cumplir con los criterios de seguridad establecidos 🔒
+          </p>
+        </div>
+
+        <!-- Recordarme + Olvidé contraseña -->
+        <div class="flex items-center justify-between text-sm">
+          <label class="flex items-center text-blue-900">
+            <input type="checkbox" name="remember-me" class="h-4 w-4 text-yellow-500 border-gray-300 rounded">
+            <span class="ml-2">Recuérdame</span>
+          </label>
+          <a href="#" class="text-yellow-500 hover:underline">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <!-- Botón -->
+        <button
+          type="submit"
+          class="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-blue-900 font-semibold py-2 rounded-lg shadow-md hover:from-yellow-500 hover:to-yellow-600 transition-all"
+        >
+          Iniciar Sesión
+        </button>
+      </form>
+
+      <!-- Ir a registro -->
+      <p class="text-center text-sm text-blue-800 mt-6">
+        ¿No tienes una cuenta?
+        <a th:href="@{/register}" class="text-yellow-500 font-semibold hover:underline">Regístrate</a>
+      </p>
+    </div>
+  </main>
+
+  <!-- FOOTER (cambie de footer) -->
+  <div th:replace="~{componentes/footer :: footer}"></div>
+
+</body>
+</html>

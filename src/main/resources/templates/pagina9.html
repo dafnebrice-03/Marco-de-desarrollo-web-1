@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre Ruedas - Destinos</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- JS -->
+  <script src="/js/main.js" defer></script>
+
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- HEADER -->
+  <div th:replace="componentes/encabezado :: encabezado"></div>
+
+  <section class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white pt-24 pb-16 text-center">
+    <h2 class="text-5xl font-bold tracking-wide animate-fadeIn">DESTINOS</h2>
+  </section>
+
+  <section class="py-16 px-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Arequipa -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition duration-500 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 animate-fadeInUp">
+        <div class="relative">
+          <img src="/images/Imagen19.jpeg" alt="Arequipa" class="w-full h-56 object-cover">
+          <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <h3 class="text-2xl font-bold text-white">AREQUIPA</h3>
+          </div>
+        </div>
+        <div class="p-6">
+          <p class="mb-4">
+            <strong>Ciudad Blanca con arquitectura colonial, volcanes y el Cañón del Colca.</strong>
+            <span class="block text-gray-600">Perfecta para una mezcla de historia y naturaleza.</span>
+          </p>
+          <a th:href="@{/destinos/arequipa}" 
+             class="inline-block bg-blue-600 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-700 transition">
+             VER DETALLE
+          </a>
+        </div>
+      </div>
+
+      <!-- Cusco -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition duration-500 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 animate-fadeInUp delay-100">
+        <div class="relative">
+          <img src="/images/Imagen20.jpg" alt="Cusco" class="w-full h-56 object-cover">
+          <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <h3 class="text-2xl font-bold text-white">CUSCO</h3>
+          </div>
+        </div>
+        <div class="p-6">
+          <p class="mb-4">
+            <strong>Capital histórica del Perú y puerta de entrada a Machu Picchu.</strong>
+            <span class="block text-gray-600">Ruinas incas, arquitectura colonial y cultura viva.</span>
+          </p>
+          <a th:href="@{/destinos/cusco}" 
+             class="inline-block bg-blue-600 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-700 transition">
+             VER DETALLE
+          </a>
+        </div>
+      </div>
+
+      <!-- Huaraz -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition duration-500 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 animate-fadeInUp delay-200">
+        <div class="relative">
+          <img src="/images/Imagen21.jpeg" alt="Huaraz" class="w-full h-56 object-cover">
+          <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <h3 class="text-2xl font-bold text-white">HUARAZ</h3>
+          </div>
+        </div>
+        <div class="p-6">
+          <p class="mb-4">
+            <strong>Aventura y paisajes de alta montaña.</strong>
+            <span class="block text-gray-600">Ideal para trekking en la Cordillera Blanca y visitar la Laguna 69.</span>
+          </p>
+          <a th:href="@{/destinos/huaraz}" 
+             class="inline-block bg-blue-600 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-700 transition">
+             VER DETALLE
+          </a>
+        </div>
+      </div>
+
+      <!-- Oxapampa -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition duration-500 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 animate-fadeInUp delay-300">
+        <div class="relative">
+          <img src="/images/Imagen22.jpeg" alt="Oxapampa" class="w-full h-56 object-cover">
+          <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <h3 class="text-2xl font-bold text-white">OXAPAMPA</h3>
+          </div>
+        </div>
+        <div class="p-6">
+          <p class="mb-4">
+            <strong>Naturaleza, cultura austro-alemana y biodiversidad.</strong>
+            <span class="block text-gray-600">Ideal para relajarse y explorar la selva central.</span>
+          </p>
+          <a th:href="@{/destinos/oxapampa}" 
+             class="inline-block bg-blue-600 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-700 transition">
+             VER DETALLE
+          </a>
+        </div>
+      </div>
+
+      <!-- Puno -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition duration-500 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 animate-fadeInUp delay-400">
+        <div class="relative">
+          <img src="/images/Imagen23.jpg" alt="Puno" class="w-full h-56 object-cover">
+          <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <h3 class="text-2xl font-bold text-white">PUNO</h3>
+          </div>
+        </div>
+        <div class="p-6">
+          <p class="mb-4">
+            <strong>Conocido por el Lago Titicaca y las islas flotantes de los Uros.</strong>
+            <span class="block text-gray-600">Cultura ancestral y paisajes únicos.</span>
+          </p>
+          <a th:href="@{/destinos/puno}" 
+             class="inline-block bg-blue-600 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-700 transition">
+             VER DETALLE
+          </a>
+        </div>
+      </div>
+
+      <!-- Paracas -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition duration-500 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 animate-fadeInUp delay-500">
+        <div class="relative">
+          <img src="/images/Imagen24.jpg" alt="Paracas" class="w-full h-56 object-cover">
+          <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <h3 class="text-2xl font-bold text-white">PARACAS</h3>
+          </div>
+        </div>
+        <div class="p-6">
+          <p class="mb-4">
+            <strong>Mar, desierto y fauna marina.</strong>
+            <span class="block text-gray-600">Reserva Nacional de Paracas, Islas Ballestas y playas tranquilas.</span>
+          </p>
+          <a th:href="@{/destinos/paracas}" 
+             class="inline-block bg-blue-600 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-700 transition">
+             VER DETALLE
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div th:replace="componentes/footer :: footer"></div>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre Ruedas - Registro</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ScrollReveal -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+
+  <!-- JS local -->
+  <script th:src="@{/js/main.js}" defer></script>
+</head>
+<body class="flex flex-col min-h-screen bg-gray-50">
+
+  <!-- SECCIÓN PRINCIPAL -->
+  <main class="flex-grow flex items-center justify-center px-4 relative">
+
+    <!-- Fondos decorativos -->
+    <div class="absolute top-16 left-16 w-64 h-64 bg-white/20 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-16 right-16 w-80 h-80 bg-blue-300/20 rounded-full blur-3xl"></div>
+
+    <!-- Tarjeta de registro -->
+    <div class="w-full max-w-md relative z-10 bg-white/90 backdrop-blur-lg shadow-2xl rounded-2xl p-10">
+      
+      <!-- Título -->
+      <h2 class="text-3xl font-semibold text-center text-blue-900 mb-3">
+        Únete a <span class="text-yellow-500">Sobre Ruedas</span>
+      </h2>
+      <p class="text-center text-sm text-blue-600 mb-4">Crea tu cuenta y empieza tu próxima aventura</p>
+
+      <!-- Mensaje de error o éxito -->
+      <div th:if="${error}" class="text-red-600 text-center mb-4">
+          <p th:text="${error}"></p>
+      </div>
+      <div th:if="${success}" class="text-green-600 text-center mb-4">
+          <p th:text="${success}"></p>
+      </div>
+
+      <!-- Formulario Thymeleaf -->
+      <form th:action="@{/register}" th:object="${usuario}" method="post" class="space-y-6">
+        <!-- Requisitos de contraseña -->
+        <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+          <h3 class="text-sm font-semibold text-blue-800 mb-2">Requisitos de la contraseña:</h3>
+          <ul class="text-sm text-gray-600 list-disc pl-5 space-y-1">
+            <li>Mínimo 8 caracteres de longitud</li>
+            <li>Al menos una letra (mayúscula o minúscula)</li>
+            <li>Al menos un número</li>
+            <li>Al menos un carácter especial (como @, #, $, %, etc.)</li>
+            <li>No se permiten espacios</li>
+          </ul>
+        </div>
+        <div>
+          <label for="nombre" class="block text-sm font-medium text-blue-900">Nombre completo</label>
+          <input th:field="*{nombre}" 
+            type="text" 
+            id="nombre" 
+            placeholder="Tu nombre"
+            required
+            class="mt-1 w-full px-4 py-2 bg-white border border-blue-200 rounded-lg shadow-sm focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+          >
+          <p th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="text-red-600 text-sm mt-1"></p>
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium text-blue-900">
+            Correo Electrónico 
+            <span class="text-xs text-gray-600">(este será tu usuario para iniciar sesión)</span>
+          </label>
+          <input th:field="*{email}"
+            type="email" 
+            id="email" 
+            placeholder="ejemplo@correo.com" 
+            required
+            class="mt-1 w-full px-4 py-2 bg-white border border-blue-200 rounded-lg shadow-sm focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+          >
+          <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-red-600 text-sm mt-1"></p>
+        </div>
+
+        <div>
+          <label for="password" class="block text-sm font-medium text-blue-900">Contraseña</label>
+          <input th:field="*{password}"
+            type="password" 
+            id="password" 
+            placeholder="••••••••" 
+            required
+            pattern="(?=^\S+$)(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}"
+            title="Mínimo 8 caracteres, al menos 1 letra, 1 número, 1 carácter especial y sin espacios"
+            class="mt-1 w-full px-4 py-2 bg-white border border-blue-200 rounded-lg shadow-sm focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+          >
+          <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-red-600 text-sm mt-1"></p>
+          <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-red-600 text-sm mt-1"></p>
+        </div>
+
+        <div>
+          <label for="confirm-password" class="block text-sm font-medium text-blue-900">Confirmar contraseña</label>
+          <input 
+            type="password" 
+            id="confirm-password" 
+            name="confirmPassword" 
+            placeholder="••••••••" 
+            required
+            class="mt-1 w-full px-4 py-2 bg-white border border-blue-200 rounded-lg shadow-sm focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+          >
+        </div>
+
+        <button 
+          type="submit"
+          class="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-blue-900 font-semibold py-2 rounded-lg shadow-md hover:from-yellow-500 hover:to-yellow-600 transition-all"
+        >
+          Registrarse
+        </button>
+      </form>
+
+      <p class="text-center text-sm text-blue-800 mt-6">
+        ¿Ya tienes una cuenta? 
+        <a th:href="@{/login}" class="text-yellow-500 font-semibold hover:underline">Inicia sesión</a>
+      </p>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <div th:replace="componentes/footer :: footer"></div>
+
+</body>
+</html>

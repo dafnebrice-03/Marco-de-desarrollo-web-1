@@ -1,0 +1,117 @@
+CONFIGURACIÓN IMPORTANTE
+
+DATABASE
+
+spring.datasource.url=jdbc:sqlserver://DESKTOP-P99LE3N\SQLEXPRESS:1433;databaseName=sobreruedas;trustServerCertificate=true;encrypt=false
+spring.datasource.username=Sebastian
+spring.datasource.password=Sebastian
+spring.datasource.driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+Por qué encrypt=false?
+- SQL Server Express no tiene certificados TLS válidos normalmente
+- encrypt=false es lo correcto para desarrollo local
+- Si necesitas producción, configura certificados en SQL Server
+
+HIKARICPOOL
+
+spring.datasource.hikari.maximum-pool-size=5
+spring.datasource.hikari.minimum-idle=2
+spring.datasource.hikari.connection-timeout=10000
+
+Esto soluciona el problema donde se quedaba "HikariPool-1 - Starting..."
+- Timeout de 10 segundos evita esperas indefinidas
+- Pool pequeño es suficiente para desarrollo
+
+HIBERNATE
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.SQLServerDialect
+
+ddl-auto=update crea/actualiza las tablas automáticamente desde los modelos.
+Si quieres hacer todo manual, cambia a "validate".
+
+ARCHIVOS DE CONFIGURACIÓN
+
+Solo existe: application.properties
+- Contiene TODA la configuración necesaria
+- Spring Boot la carga por defecto automáticamente
+- Eliminado: application-sqlserver.properties (era redundante)
+
+Si en el futuro necesitas múltiples perfiles (MySQL, PostgreSQL, etc), puedes crear:
+- application-mysql.properties
+- application-postgresql.properties
+Y ejecutar con: mvn spring-boot:run -Dspring.profiles.active=mysql
+
+CAMBIOS HECHOS
+
+1. Removido MySQL
+   - Borrado mysql-connector-j del pom.xml
+   - Ahora solo está mssql-jdbc
+
+2. Configurado HikariCP
+   - Agregados timeouts y pool size
+   - encrypt=false
+
+3. Unified application.properties
+   - Antes: application.properties + application-sqlserver.properties (redundancia)
+   - Ahora: Solo application.properties con mejor configuración
+
+4. Controllers
+   - UsuarioController maneja login/registro
+   - Usa jakarta.servlet (correcto para Spring Boot 3)
+   - Las contraseñas se encriptan con BCrypt
+
+5. Seguridad
+   - FormLogin configurado
+   - Logout con redirección
+   - Usuario ADMIN en memoria: root / Sebastian2004jul
+   - Acceso a rutas públicas y privadas configurado
+
+SCRIPTS DISPONIBLES
+
+EJECUTAR_CON_VERIFICACION.ps1
+- Verifica SQL Server está corriendo
+- Prueba conexión a BD
+- Ejecuta mvn spring-boot:run
+
+EJECUTAR_CON_VERIFICACION.bat
+- Versión CMD de lo anterior
+
+PARA PROBAR LA APP
+
+1. Ejecuta: mvn spring-boot:run
+2. Abre: http://localhost:8080
+3. Puedes:
+   - Registrar usuario nuevo
+   - Login con credenciales
+   - Ver paquetes y destinos
+   - Hacer reservas (si autenticado)
+
+Usuario de prueba en memoria:
+- Usuario: root
+- Contraseña: Sebastian2004jul
+(Este es solo para autenticación de prueba, puedes registrar usuarios nuevos que se guardan en BD)
+
+SI NO ARRANCA
+
+La causa usual es que HikariCP no puede conectar a SQL Server:
+
+1. Verifica SQL Server está corriendo
+   services.msc → SQL Server (SQLEXPRESS) → Running
+
+2. Verifica credenciales en application.properties
+   Usuario: Sebastian
+   Contraseña: Sebastian
+   
+3. Verifica el servidor y puerto
+   DESKTOP-P99LE3N\SQLEXPRESS:1433
+
+4. Si aún no funciona, ejecuta el script de diagnóstico
+   .\EJECUTAR_CON_VERIFICACION.ps1
+
+LOGS ÚTILES
+
+Si ves "Connection refused" → SQL Server no está corriendo
+Si ves "Login failed" → Credenciales incorrectas
+Si ves "Cannot create PoolableConnectionFactory" → URL incorrecta
+Si ves "HikariPool timeout" → Puede ser firewall bloqueando puerto 1433

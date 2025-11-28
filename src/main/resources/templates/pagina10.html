@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre Ruedas - Arequipa</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- ScrollReveal -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- JS principal -->
+  <script src="/js/main.js" defer></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- HEADER -->
+  <div th:replace="componentes/encabezado :: encabezado"></div>
+
+  <!-- Banner -->
+  <section class="relative bg-cover bg-center h-[50vh] flex items-center justify-center"
+           th:style="|background-image: url('@{/images/Imagen26.jpg}')|">
+    <div class="bg-black bg-opacity-50 absolute inset-0"></div>
+    <div class="relative z-10 text-center">
+      <h2 class="text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg">AREQUIPA</h2>
+    </div>
+  </section>
+  
+  <!-- Información principal -->
+  <section class="max-w-7xl mx-auto py-16 px-6 grid md:grid-cols-3 gap-10">
+    
+    <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition">
+      <h3 class="text-2xl font-semibold text-blue-700 mb-4 sr-text">🚗 Ideal para:</h3>
+      <ul class="list-disc pl-5 space-y-2 text-gray-700">
+        <li class="sr-item">Cultura y arquitectura</li>
+        <li class="sr-item">Viajeros foodie</li>
+        <li class="sr-item">Exploradores de altura</li>
+      </ul>
+
+      <h3 class="text-2xl font-semibold text-blue-700 mt-8 mb-4 sr-text">🛣️ Ruta recomendada:</h3>
+      <p class="mb-3 font-medium sr-item">Ica - Nazca - Arequipa</p>
+      <ul class="list-disc pl-5 space-y-2 text-gray-700">
+        <li class="sr-item">Ruta panorámica por el desierto</li>
+        <li class="sr-item">Revisar frenos antes de viajar</li>
+      </ul>
+    </div>
+
+    <div class="flex items-center justify-center">
+      <img th:src="@{/images/Imagen26.jpg}" src="/images/Imagen26.jpg" alt="Plaza de Arequipa" 
+           class="rounded-2xl shadow-lg sr-img">
+    </div> 
+
+    <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition">
+      <h3 class="text-2xl font-semibold text-blue-700 mb-4 sr-text">✨ Actividades destacadas:</h3>
+      <ul class="list-disc pl-5 space-y-2 text-gray-700">
+        <li class="sr-item">Monasterio de Santa Catalina</li>
+        <li class="sr-item">Mirador de Yanahuara</li>
+        <li class="sr-item">City tour nocturno</li>
+      </ul>
+
+      <h3 class="text-2xl font-semibold text-blue-700 mt-8 mb-4 sr-text">🧭 Recomendaciones:</h3>
+      <ul class="list-disc pl-5 space-y-2 text-gray-700">
+        <li class="sr-item">Probar el rocoto relleno</li>
+        <li class="sr-item">Llevar ropa de media estación</li>
+        <li class="sr-item">Aclimatarse por altitud moderada</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Galería -->
+  <section class="max-w-7xl mx-auto py-12 px-6">
+    <h3 class="text-3xl font-bold text-blue-700 mb-8 text-center">📸 Galería</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <img th:src="@{/images/Imagen27.jpeg}" src="/images/Imagen27.jpeg" alt="Arequipa 1" class="rounded-xl shadow-md hover:scale-105 transition sr-img">
+      <img th:src="@{/images/Imagen28.jpg}" src="/images/Imagen28.jpg" alt="Arequipa 2" class="rounded-xl shadow-md hover:scale-105 transition sr-img">
+      <img th:src="@{/images/Imagen29.jpeg}" src="/images/Imagen29.jpeg" alt="Arequipa 3" class="rounded-xl shadow-md hover:scale-105 transition sr-img">
+      <img th:src="@{/images/Imagen30.jpeg}" src="/images/Imagen30.jpeg" alt="Arequipa 4" class="rounded-xl shadow-md hover:scale-105 transition sr-img">
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div th:replace="componentes/footer :: footer"></div>
+
+  <!-- ScrollReveal -->
+  <script>
+    ScrollReveal().reveal('.sr-text', {
+      duration: 1000,
+      distance: '40px',
+      origin: 'left',
+      easing: 'ease-out',
+      opacity: 0,
+      interval: 200
+    });
+
+    ScrollReveal().reveal('.sr-item', {
+      duration: 1000,
+      distance: '20px',
+      origin: 'bottom',
+      easing: 'ease-out',
+      opacity: 0,
+      interval: 150
+    });
+
+    ScrollReveal().reveal('.sr-img', {
+      duration: 1200,
+      distance: '60px',
+      origin: 'bottom',
+      easing: 'ease-in-out',
+      opacity: 0,
+      interval: 200,
+      scale: 0.95
+    });
+  </script>
+
+</body>
+</html>

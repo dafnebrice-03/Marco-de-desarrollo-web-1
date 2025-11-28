@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre Ruedas - Paquetes</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script th:src="@{/js/main.js}"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body class="flex flex-col min-h-screen bg-gray-50">
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="flex-1">
+     <div th:replace="componentes/encabezado :: encabezado"></div>
+
+    <section class="relative h-[60vh] bg-cover bg-center flex items-center justify-center" 
+             th:style="'background-image: url(' + @{/images/paq.webp} + ')'">
+      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div class="relative z-10 text-center text-white">
+        <h2 class="text-5xl md:text-6xl font-bold">PAQUETES</h2>
+      </div>
+    </section>
+
+    <section class="rutas grid gap-8 p-6 md:grid-cols-2 lg:grid-cols-4">
+
+      <!-- Paquete 1 -->
+      <div class="paquete p-6 bg-white rounded-xl shadow-md hover:shadow-xl transition">
+        <h3 class="text-xl font-bold mb-2">PAQUETE 1<br><span class="font-normal">Ruta Sur Andina</span></h3>
+        <p class="mb-1"><i class="fas fa-route mr-2 text-blue-600"></i>Cultura, paisajes y aventura.</p>
+        <p class="mb-1"><i class="fas fa-clock mr-2 text-blue-600"></i>7 días / 6 noches</p>
+        <p class="mb-3"><i class="fas fa-map-marker-alt mr-2 text-blue-600"></i>Lima – Paracas – Arequipa – Puno – Cusco</p>
+        <a th:href="@{/paquetes/1}" class="inline-block text-blue-600 font-semibold hover:underline">VER DETALLE</a>
+      </div>
+
+      <!-- Paquete 2 -->
+      <div class="paquete p-6 bg-white rounded-xl shadow-md hover:shadow-xl transition">
+        <h3 class="text-xl font-bold mb-2">PAQUETE 2<br><span class="font-normal">Ruta Cordillera y Naturaleza</span></h3>
+        <p class="mb-1"><i class="fas fa-hiking mr-2 text-blue-600"></i>Trekking, aire puro y naturaleza.</p>
+        <p class="mb-1"><i class="fas fa-clock mr-2 text-blue-600"></i>6 días / 5 noches</p>
+        <p class="mb-3"><i class="fas fa-map-marker-alt mr-2 text-blue-600"></i>Lima – Huaraz – Oxapampa</p>
+        <a th:href="@{/paquetes/2}" class="inline-block text-blue-600 font-semibold hover:underline">VER DETALLE</a>
+      </div>
+
+      <!-- Paquete 3 -->
+      <div class="paquete p-6 bg-white rounded-xl shadow-md hover:shadow-xl transition">
+        <h3 class="text-xl font-bold mb-2">PAQUETE 3<br><span class="font-normal">Ruta Pacífico Sur</span></h3>
+        <p class="mb-1"><i class="fas fa-city mr-2 text-blue-600"></i>Cultura, paisajes y aventura.</p>
+        <p class="mb-1"><i class="fas fa-clock mr-2 text-blue-600"></i>5 días / 4 noches</p>
+        <p class="mb-3"><i class="fas fa-map-marker-alt mr-2 text-blue-600"></i>Lima – Paracas – Arequipa</p>
+        <a th:href="@{/paquetes/3}" class="inline-block text-blue-600 font-semibold hover:underline">VER DETALLE</a>
+      </div>
+
+      <!-- Paquete 4 -->
+      <div class="paquete p-6 bg-white rounded-xl shadow-md hover:shadow-xl transition">
+        <h3 class="text-xl font-bold mb-2">PAQUETE 4<br><span class="font-normal">Ruta Aventura Amazónica</span></h3>
+        <p class="mb-1"><i class="fas fa-tree mr-2 text-blue-600"></i>Selva, cascadas y experiencias únicas.</p>
+        <p class="mb-1"><i class="fas fa-clock mr-2 text-blue-600"></i>6 días / 5 noches</p>
+        <p class="mb-3"><i class="fas fa-map-marker-alt mr-2 text-blue-600"></i>Lima – Tarapoto – Oxapampa</p>
+        <a th:href="@{/paquetes/4}" class="inline-block text-blue-600 font-semibold hover:underline">VER DETALLE</a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <div th:replace="componentes/footer :: footer"></div>
+
+</body>
+</html>

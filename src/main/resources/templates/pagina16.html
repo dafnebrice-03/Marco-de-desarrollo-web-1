@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre Ruedas - Ruta Sur Andina</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ScrollReveal -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="/js/main.js" defer></script>
+
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body class="bg-white text-gray-800">
+
+  <!-- HEADER -->
+  <div th:replace="componentes/encabezado :: encabezado"></div>
+  
+  <!-- Banner -->
+  <section class="relative w-full h-[80vh] flex items-center justify-center bg-cover bg-center"
+           style="background-image: url('/images/ImagenRutaSur.png');">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="relative z-10 text-center px-6">
+      <h2 class="text-5xl md:text-7xl font-extrabold text-blue-200 drop-shadow-lg">RUTA SUR ANDINA</h2>
+      <p class="mt-4 text-lg md:text-xl text-gray-100 max-w-3xl mx-auto">
+        Vive una experiencia inolvidable recorriendo el corazón del sur andino: desiertos, volcanes, lagos y la magia de Cusco.  
+        Una ruta diseñada para quienes buscan cultura, aventura y paisajes que roban el aliento.
+      </p>
+    </div>
+  </section>
+
+  <!-- Información resumida -->
+  <section class="py-12 px-6 md:px-20 bg-gray-50 grid md:grid-cols-5 gap-6 text-center">
+    <div class="bg-white rounded-xl shadow-lg p-6" id="info1">
+      <h4 class="text-xl font-bold text-blue-700">Duración</h4>
+      <p class="text-gray-700 mt-2">6 días / 5 noches</p>
+    </div>
+    <div class="bg-white rounded-xl shadow-lg p-6" id="info2">
+      <h4 class="text-xl font-bold text-blue-700">Lugares</h4>
+      <p class="text-gray-700 mt-2">Lima - Ica - Arequipa - Puno - Cusco</p>
+    </div>
+    <div class="bg-white rounded-xl shadow-lg p-6" id="info3">
+      <h4 class="text-xl font-bold text-blue-700">Resumen</h4>
+      <p class="text-gray-700 mt-2">Recorrido épico por volcanes, historia Inca y el Lago Titicaca.</p>
+    </div>
+    <div class="bg-white rounded-xl shadow-lg p-6" id="info4">
+      <h4 class="text-xl font-bold text-blue-700">Ideal para</h4>
+      <p class="text-gray-700 mt-2">Cultura, paisajes y turismo vivencial</p>
+    </div>
+    <div class="bg-blue-700 text-white rounded-xl shadow-lg p-6 flex flex-col justify-center" id="info5">
+      <h4 class="text-xl font-bold">Precio</h4>
+      <p class="text-lg mt-2">$150.00</p>
+<a th:href="@{/reserva/1}" class="mt-4 inline-block bg-white text-blue-700 font-bold px-4 py-2 rounded-lg shadow hover:bg-gray-100 transition">RESERVAR AHORA</a>    </div>
+  </section>
+
+  <!-- Itinerario -->
+  <section class="py-16 px-6 md:px-20 bg-white">
+    <h2 class="text-3xl font-extrabold text-blue-700 text-center mb-10">Itinerario Roadtrip</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="day-card bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition" id="day1">
+        <h3 class="font-bold text-xl text-blue-700">Día 1: Lima - Ica</h3>
+        <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+          <li>Salida temprano desde Lima por la Panamericana Sur</li>
+          <li>Parada opcional en Paracas para avistamiento de fauna</li>
+          <li>Visita a la Huacachina y bodegas de pisco</li>
+          <li>Noche en Ica</li>
+        </ul>
+      </div>
+      <div class="day-card bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition" id="day2">
+        <h3 class="font-bold text-xl text-blue-700">Día 2: Ica - Arequipa</h3>
+        <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+          <li>Ruta panorámica por Nazca y desierto costero</li>
+          <li>Llegada a Arequipa por la tarde</li>
+          <li>City tour nocturno</li>
+        </ul>
+      </div>
+      <div class="day-card bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition" id="day3">
+        <h3 class="font-bold text-xl text-blue-700">Día 3: Arequipa</h3>
+        <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+          <li>Visita al Monasterio de Santa Catalina</li>
+          <li>Mirador de Yanahuara</li>
+          <li>Gastronomía local y termas</li>
+        </ul>
+      </div>
+      <div class="day-card bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition" id="day4">
+        <h3 class="font-bold text-xl text-blue-700">Día 4: Arequipa - Puno</h3>
+        <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+          <li>Ruta altiplánica con miradores</li>
+          <li>Visita al centro de Puno</li>
+        </ul>
+      </div>
+      <div class="day-card bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition" id="day5">
+        <h3 class="font-bold text-xl text-blue-700">Día 5: Lago Titicaca</h3>
+        <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+          <li>Excursión a las Islas Uros y Taquile</li>
+          <li>Experiencia cultural con familias locales</li>
+        </ul>
+      </div>
+      <div class="day-card bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition" id="day6">
+        <h3 class="font-bold text-xl text-blue-700">Día 6: Puno - Cusco</h3>
+        <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+          <li>Ruta escénica con paradas en La Raya y Raqchi</li>
+          <li>Llegada a Cusco por la tarde</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Incluye / Restricciones -->
+  <section class="py-16 px-6 md:px-20 bg-gray-50 grid md:grid-cols-2 gap-10">
+    <div class="card bg-white rounded-xl shadow-lg p-8" id="incluye">
+      <h3 class="text-2xl font-bold text-blue-700">✅ Incluye</h3>
+      <ul class="list-disc list-inside text-gray-700 mt-4 space-y-2">
+        <li>Rutas recomendadas con paradas clave</li>
+        <li>Hospedajes sugeridos con estacionamiento</li>
+        <li>Mapas y tiempos estimados</li>
+        <li>Recomendaciones gastronómicas</li>
+      </ul>
+    </div>
+    <div class="card bg-white rounded-xl shadow-lg p-8" id="restricciones">
+      <h3 class="text-2xl font-bold text-blue-700">⚠️ Restricciones</h3>
+      <ul class="list-disc list-inside text-gray-700 mt-4 space-y-2">
+        <li>No apto para vehículos sin mantenimiento</li>
+        <li>Precaución para personas con problemas respiratorios</li>
+        <li>Algunas rutas sin señal (descargar mapas offline)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Recomendaciones y contacto -->
+  <section class="py-16 px-6 md:px-20 bg-white flex flex-col md:flex-row items-center justify-between gap-10">
+    <div id="recomendaciones">
+      <h3 class="text-2xl font-bold text-blue-700 mb-4">Recomendaciones</h3>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li>Revisión técnica del vehículo</li>
+        <li>Llevar oxígeno portátil para la altura</li>
+        <li>Reservar hospedajes con anticipación</li>
+        <li>Ropa abrigadora y bloqueador solar</li>
+      </ul>
+    </div>
+    <div>
+      <a href="https://wa.me/51933851860" target="_blank" title="Contáctanos en WhatsApp">
+        <img src="/images/IconoWsp.png" alt="WhatsApp" class="w-20 hover:scale-110 transition-transform">
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div th:replace="componentes/footer :: footer"></div>
+
+  <script>
+    ScrollReveal().reveal('#info1, #info2, #info3, #info4, #info5', { interval: 200, duration: 1000, distance: '50px', origin: 'bottom' });
+    ScrollReveal().reveal('.day-card', { interval: 200, duration: 1000, distance: '60px', origin: 'bottom' });
+    ScrollReveal().reveal('#incluye', { origin: 'left', distance: '80px', duration: 1200 });
+    ScrollReveal().reveal('#restricciones', { origin: 'right', distance: '80px', duration: 1200 });
+    ScrollReveal().reveal('#recomendaciones', { origin: 'bottom', distance: '80px', duration: 1200 });
+  </script>
+
+</body>
+</html>

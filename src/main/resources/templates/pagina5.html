@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre Ruedas - Paquete Ruta Sur Andina</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ScrollReveal -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/paquetes.js" defer></script>
+  <script src="/js/pagina5.js" defer></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- HEADER -->
+  <div th:replace="componentes/encabezado :: encabezado"></div>
+
+  <section class="bg-blue-600 text-white text-center pt-24 pb-16 animate-fadeIn">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-bold mb-2">RESERVAS PARA PAQUETES</h2>
+      <h3 class="mt-4 text-lg">Paquete Ruta Sur Andina</h3>
+    </div>
+  </section>
+
+  <section class="py-12 px-6">
+    <form id="form-reserva" 
+          class="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg space-y-6 transform transition duration-500 hover:shadow-2xl animate-fadeInUp" 
+          novalidate>
+
+      <div>
+        <label for="nombre" class="block font-semibold mb-2">Nombres completos</label>
+        <input type="text" id="nombre" name="nombre" required
+               class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none transition" />
+      </div>
+
+      <div>
+        <label for="correo" class="block font-semibold mb-2">Correo electrónico</label>
+        <input type="email" id="correo" name="correo" required
+               class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none transition" />
+      </div>
+
+      <div>
+        <label for="telefono" class="block font-semibold mb-2">Teléfono</label>
+        <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" placeholder="Ej: 987654321" required
+               class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none transition" />
+      </div>
+
+      <div>
+        <label for="personas" class="block font-semibold mb-2">Número de personas</label>
+        <input type="number" id="personas" name="personas" min="1" required
+               class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none transition" />
+      </div>
+
+      <div>
+        <label for="mensaje" class="block font-semibold mb-2">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Escribe tu mensaje aquí..."
+                  class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"></textarea>
+      </div>
+
+      <button type="submit"
+              class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition transform hover:-translate-y-1 hover:scale-105">
+        Enviar reserva
+      </button>
+
+      <p id="estado-formulario" class="mt-4 text-center text-sm text-gray-600"></p>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <div th:replace="componentes/footer :: footer"></div>
+
+  <script>
+    const form = document.querySelector('#form-reserva');
+    form.classList.add('opacity-0', 'translate-y-8');
+    setTimeout(() => {
+      form.classList.remove('opacity-0', 'translate-y-8');
+      form.classList.add('opacity-100', 'transition', 'duration-700', 'ease-out');
+    }, 200);
+  </script>
+
+</body>
+</html>

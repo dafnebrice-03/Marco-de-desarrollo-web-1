@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre Ruedas - Ruta Cordillera y Naturaleza</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ScrollReveal -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="/js/main.js" defer></script>
+
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+  <!-- HEADER -->
+  <div th:replace="componentes/encabezado :: encabezado"></div>
+
+  <!-- Banner -->
+  <section class="relative w-full h-[80vh] flex items-center justify-center bg-cover bg-center"
+           style="background-image: url('/images/ImagenRutaCordillera.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="relative z-10 text-center px-6">
+      <h2 class="text-5xl md:text-7xl font-extrabold text-blue-200 drop-shadow-lg sr-title">
+        Ruta Cordillera y Naturaleza
+      </h2>
+      <p class="mt-4 text-lg md:text-xl text-gray-100 max-w-3xl mx-auto sr-sub">
+        Explora desde la costa hasta la selva alta en un solo viaje lleno de montañas, lagunas, cultura y aire puro.
+      </p>
+    </div>
+  </section>
+
+  <main class="py-12 md:py-16 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+
+    <!-- Resumen rápido -->
+    <section class="grid grid-cols-1 md:grid-cols-5 gap-6 mb-12 sr-col">
+      <div class="bg-white p-6 rounded-xl shadow-md text-center">
+        <h4 class="text-xl font-bold text-blue-700">Duración</h4>
+        <p>6 días / 5 noches</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-md text-center">
+        <h4 class="text-xl font-bold text-blue-700">Lugares</h4>
+        <p>Lima - Huaraz - Oxapampa</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-md text-center">
+        <h4 class="text-xl font-bold text-blue-700">Resumen</h4>
+        <p>De la costa a la montaña y selva alta en un solo viaje.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-md text-center">
+        <h4 class="text-xl font-bold text-blue-700">Ideal para</h4>
+        <p>Trekking, aire puro y naturaleza.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-md text-center">
+        <h4 class="text-xl font-bold text-blue-700">Precio</h4>
+        <p>$200.00</p>
+<a th:href="@{/reserva/2}" class="mt-4 inline-block bg-white text-blue-700 font-bold px-4 py-2 rounded-lg shadow hover:bg-gray-100 transition">RESERVAR AHORA</a>      </div>
+    </section>
+
+    <!-- Itinerario -->
+    <section class="itinerario sr-col">
+      <h2 class="text-3xl font-bold text-center text-blue-700 mb-8">Itinerario Roadtrip</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Día 1 a Día 6 (igual que en tu HTML original) -->
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h3 class="text-xl font-bold mb-2">Día 1: Lima - Huaraz</h3>
+          <p>• Salida temprano desde Lima por la vía Pativilca – Conococha.</p>
+          <p>• Paradas en miradores andinos.</p>
+          <p>• Llegada a Huaraz en la tarde.</p>
+          <p>• Noche en Huaraz.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h3 class="text-xl font-bold mb-2">Día 2: Huaraz (Laguna 69 o Pastoruri)</h3>
+          <p>• Excursión a la Laguna 69 o a la Ruta del Pastoruri.</p>
+          <p>• Actividad de trekking o paseo escénico.</p>
+          <p>• Tarde de descanso o visita a aguas termales.</p>
+          <p>• Noche en Huaraz.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h3 class="text-xl font-bold mb-2">Día 3: Huaraz - Oxapampa</h3>
+          <p>• Viaje largo por carretera hacia la selva alta (vía La Unión - Tingo María).</p>
+          <p>• Paradas en ruta para fotos y descanso.</p>
+          <p>• Llega a Oxapampa.</p>
+          <p>• Noche en Oxapampa.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h3 class="text-xl font-bold mb-2">Día 4: Oxapampa</h3>
+          <p>• Visita al distrito de Chontabamba, cataratas y comunidad Yanesha.</p>
+          <p>• Degustación de productos locales (café, queso, chocolates).</p>
+          <p>• Caminata ecológica.</p>
+          <p>• Noche en Oxapampa.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h3 class="text-xl font-bold mb-2">Día 5: Pozuzo o día libre en Oxapampa</h3>
+          <p>• Ruta hacia Pozuzo por camino rural (4x4 recomendado).</p>
+          <p>• Exploración de comunidad austro-alemana.</p>
+          <p>• O bien, actividades en Oxapampa: canopy, río, caminatas.</p>
+          <p>• Noche en Oxapampa.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h3 class="text-xl font-bold mb-2">Día 6: Oxapampa - Lima</h3>
+          <p>• Retorno a Lima por la Carretera Central.</p>
+          <p>• Paradas para almuerzo y descanso.</p>
+          <p>• Fin del recorrido.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Incluye / Restricciones -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 sr-col">
+      <div class="bg-white p-6 rounded-xl shadow-md">
+        <h3 class="text-xl font-bold text-green-600 mb-2">Incluye</h3>
+        <ul class="list-disc list-inside space-y-1">
+          <li>Rutas sugeridas con paradas destacadas.</li>
+          <li>Lista de hospedajes recomendados.</li>
+          <li>Mapa con rutas, tiempos y nivel de dificultad.</li>
+          <li>Recomendaciones gastronómicas.</li>
+          <li>Opciones de actividades con links sugeridos.</li>
+        </ul>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-md">
+        <h3 class="text-xl font-bold text-red-600 mb-2">Restricciones</h3>
+        <ul class="list-disc list-inside space-y-1">
+          <li>No apto para vehículos con poca potencia o sin mantenimiento.</li>
+          <li>Ruta larga con tramos de carretera rural.</li>
+          <li>No recomendada para viajeros con vértigo o problemas respiratorios.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Recomendaciones y contacto -->
+    <div class="flex flex-col md:flex-row justify-between items-center mt-12 gap-6 sr-col">
+      <div class="bg-white p-6 rounded-xl shadow-md w-full md:w-2/3">
+        <h3 class="text-xl font-bold mb-2">Recomendaciones</h3>
+        <ul class="list-disc list-inside space-y-1">
+          <li>Revisar el estado del vehículo (y neumáticos de repuesto).</li>
+          <li>Llevar repelente, bloqueador y ropa impermeable.</li>
+          <li>Reservar hospedajes con anticipación (en temporada alta).</li>
+          <li>Llevar documentos de identidad y dinero en efectivo.</li>
+        </ul>
+      </div>
+      <div>
+        <a href="https://wa.me/your-number" target="_blank" title="Contáctanos en WhatsApp">
+          <img src="/images/IconoWsp.png" alt="WhatsApp" class="w-16 h-16" />
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <div th:replace="componentes/footer :: footer"></div>
+  <script>
+    ScrollReveal().reveal('.sr-title', { duration: 900, distance: '30px', origin: 'top', opacity: 0, easing: 'ease-out' });
+    ScrollReveal().reveal('.sr-sub', { duration: 900, distance: '20px', origin: 'top', opacity: 0, delay: 120, easing: 'ease-out' });
+    ScrollReveal().reveal('.sr-col', { duration: 900, distance: '30px', origin: 'bottom', opacity: 0, interval: 120, easing: 'ease-out' });
+  </script>
+
+</body>
+</html>

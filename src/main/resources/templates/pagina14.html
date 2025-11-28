@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sobre Ruedas - Puno</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ScrollReveal -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="/js/main.js" defer></script>
+
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+  <!-- HEADER -->
+  <div th:replace="componentes/encabezado :: encabezado"></div>
+
+  <!-- Banner -->
+  <header
+    class="relative flex items-center justify-center min-h-[50vh] md:min-h-[60vh] bg-cover bg-center"
+    style="background-image: url('/images/Imagen50.jpg');"
+  >
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30"></div>
+    <div class="relative z-10 w-full max-w-5xl mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-6xl font-extrabold text-blue-300 drop-shadow-lg sr-title">PUNO</h1>
+      <p class="mt-4 text-sm md:text-lg text-white/90 max-w-2xl mx-auto sr-sub">
+        La capital folklórica del Perú, cuna de tradiciones ancestrales y puerta al majestuoso Lago Titicaca.
+      </p>
+    </div>
+  </header>
+
+  <!-- Información principal -->
+  <main class="py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+      <section class="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
+
+        <!-- Left column -->
+        <div class="flex flex-col items-center md:items-start text-center md:text-left gap-6 sr-col">
+          <div>
+            <h2 class="text-2xl font-bold text-blue-700">🚗 Ideal para:</h2>
+            <ul class="mt-3 text-gray-700 space-y-2">
+              <li>Amantes de culturas ancestrales</li>
+              <li>Viajeros interesados en comunidades indígenas</li>
+              <li>Exploradores de destinos únicos</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-blue-700 mt-4">🛣️ Ruta recomendada:</h3>
+            <p class="mt-2 font-medium text-gray-800">Arequipa – Juliaca – Puno</p>
+            <ul class="mt-2 text-gray-700 space-y-2">
+              <li>Manejar con precaución por la altitud.</li>
+              <li>Llevar agua y snacks para trayectos largos.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Center image -->
+        <div class="flex justify-center sr-img">
+          <img
+            src="/images/Imagen50.jpg"
+            alt="Plaza de Puno"
+            class="w-full max-w-xs sm:max-w-sm md:max-w-md rounded-3xl shadow-2xl ring-1 ring-black/5 object-cover hover:scale-[1.03] transition-transform duration-500"
+          />
+        </div>
+
+        <!-- Right column -->
+        <div class="flex flex-col items-center md:items-start text-center md:text-left gap-6 sr-col">
+          <div>
+            <h2 class="text-2xl font-bold text-blue-700">✨ Actividades destacadas:</h2>
+            <ul class="mt-3 text-gray-700 space-y-2">
+              <li>Visita a las Islas flotantes de los Uros</li>
+              <li>Excursión a Taquile y Amantaní</li>
+              <li>Fiesta de la Virgen de la Candelaria</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-blue-700 mt-4">🧭 Recomendaciones:</h3>
+            <ul class="mt-2 text-gray-700 space-y-2">
+              <li>Llevar bloqueador solar y sombrero</li>
+              <li>Consumir mate de coca para la altura</li>
+              <li>Respetar las costumbres locales</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Galería -->
+      <section class="mt-12">
+        <h3 class="text-3xl font-bold text-center text-blue-600 mb-8 sr-sub">📸 Galería de Puno</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <img src="/images/Imagen51.jpg" alt="Puno 1" class="w-full h-64 object-cover rounded-xl shadow-md hover:scale-105 transition-transform duration-500 sr-img" />
+          <img src="/images/Imagen52.jpg" alt="Puno 2" class="w-full h-64 object-cover rounded-xl shadow-md hover:scale-105 transition-transform duration-500 sr-img delay-100" />
+          <img src="/images/Imagen53.webp" alt="Puno 3" class="w-full h-64 object-cover rounded-xl shadow-md hover:scale-105 transition-transform duration-500 sr-img delay-200" />
+          <img src="/images/Imagen54.jpg" alt="Puno 4" class="w-full h-64 object-cover rounded-xl shadow-md hover:scale-105 transition-transform duration-500 sr-img delay-300" />
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <div th:replace="componentes/footer :: footer"></div>
+
+  <script>
+    ScrollReveal().reveal('.sr-title', { duration: 900, distance: '30px', origin: 'top', opacity: 0, easing: 'ease-out' });
+    ScrollReveal().reveal('.sr-sub', { duration: 900, distance: '20px', origin: 'top', opacity: 0, delay: 120, easing: 'ease-out' });
+    ScrollReveal().reveal('.sr-col', { duration: 900, distance: '30px', origin: 'bottom', opacity: 0, interval: 120, easing: 'ease-out' });
+    ScrollReveal().reveal('.sr-img', { duration: 1000, distance: '40px', origin: 'bottom', opacity: 0, interval: 120, scale: 0.98, easing: 'cubic-bezier(.22,1,.36,1)' });
+  </script>
+
+</body>
+</html>
